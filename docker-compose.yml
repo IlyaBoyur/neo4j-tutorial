@@ -1,6 +1,6 @@
 services:
   neo4j:
-    image: neo4j:latest
+    image: neo4j:5.26
     container_name: neo4j-local
     ports:
       - "7474:7474"
@@ -11,5 +11,5 @@ services:
       - ./neo4j/conf:/conf
       - ./neo4j/plugins:/plugins
     environment:
-      - NEO4J_AUTH=neo4j/your_password
+      - NEO4J_AUTH=${NEO4J_AUTH:-none}
     restart: always
